@@ -16,5 +16,6 @@ public class Client {
 		System.out.println("===========result==========="+result);
 		String echoResult = proxy.echo("result");
 		System.out.println("===========result==========="+echoResult);
+		RPC.stopProxy(proxy);
 	}
 }
