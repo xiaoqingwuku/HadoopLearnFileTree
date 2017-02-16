@@ -24,6 +24,10 @@ public class RunMain {
 		job.setReducerClass(Reduce.class);//指定Reduce
 		job.setMapOutputKeyClass(Text.class);
 		job.setMapOutputValueClass(Text.class);
+		//设置切分的最大值，最小值
+		conf.setLong(FileInputFormat.SPLIT_MINSIZE, 1L); 
+		conf.setLong(FileInputFormat.SPLIT_MAXSIZE, Long.MAX_VALUE);
+		
 		Path outputPath = new Path(output);
 		FileInputFormat.setInputPaths(job, input);
 		FileOutputFormat.setOutputPath(job, outputPath);
